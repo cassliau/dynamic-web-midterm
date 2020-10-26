@@ -1,3 +1,13 @@
-.App{
-    
+.Header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1080px;
+}
+
+.Header nav a {
+  color: black;
+  font-size: 24px;
+  margin: 0 10px;
 }

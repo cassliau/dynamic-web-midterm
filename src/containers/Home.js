@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
+import Header from "../components/Header";
+import { useHistory } from "react-router-dom";
 
 // const NEWSAPI = process.env.REACT_APP_NEWS_API_KEY;
 // console.log(`api key`, NEWSAPI);
@@ -8,6 +10,7 @@ function Home() {
   const [category, setCategory] = useState("bitcoin");
   const [newsData, setNewsData] = useState([]);
   const [memeData, setMeme] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     axios
@@ -22,7 +25,16 @@ function Home() {
       .catch(function (error) {
         console.warn(error);
       });
-  }, []);
+  }, [category]);
+
+  useEffect(() => {
+    const searchParams = history.location.search;
+    const urlParams = new URLSearchParams(searchParams);
+    const category = urlParams.get("category");
+    if (category) {
+      setCategory(category);
+    }
+  }, [history]);
 
   useEffect(() => {
     axios
