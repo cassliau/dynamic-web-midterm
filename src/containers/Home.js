@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 // console.log(`api key`, NEWSAPI);
 
 function Home() {
-  const [category, setCategory] = useState("bitcoin");
+  const [category, setCategory] = useState();
   const [newsData, setNewsData] = useState([]);
   const [memeData, setMeme] = useState([]);
   const history = useHistory();
@@ -36,6 +36,13 @@ function Home() {
     }
   }, [history]);
 
+  const { title } = useMemo(() => {
+    let title = [];
+    newsData.forEach((article) => {
+      title.push(article.title);
+    });
+  });
+
   useEffect(() => {
     axios
       .get(`https://api.imgflip.com/get_memes`)
@@ -49,23 +56,23 @@ function Home() {
       });
   }, []);
 
-  return (
-    <div>
-      <h1>Home</h1>
-      {newsData.map((articles, i) => (
-        <div key={i}>
-          <h3>Article Title: </h3>
-          <p>{articles.title}</p>
-        </div>
-      ))}
-      {memeData.map((memes, i) => (
-        <div key={i}>
-          <h3>Meme: </h3>
-          <img src={memes.url} alt=""></img>
-        </div>
-      ))}
-    </div>
-  );
+  return <h1>Home</h1>;
 }
 
 export default Home;
+
+// <div>
+//   <h1>Home</h1>
+//   {newsData.map((articles, i) => (
+//     <div key={i}>
+//       <h3>Article Title: </h3>
+//       <p>{articles.title}</p>
+//     </div>
+//   ))}
+//   {memeData.map((memes, i) => (
+//     <div key={i}>
+//       <h3>Meme: </h3>
+//       <img src={memes.url} alt=""></img>
+//     </div>
+//   ))}
+// </div>
