@@ -55,16 +55,13 @@ function Home() {
         title: article.title,
         description: article.description,
         url: article.url,
-      });
-    });
-    memeData.forEach((meme) => {
-      memes.push({
-        url: meme.url,
+        meme: memeData.pop().url,
       });
     });
 
     return (
       <div>
+        <Header />
         <h3>Home</h3>
         <div>
           {articles.map((item) => (
@@ -72,16 +69,11 @@ function Home() {
               <h3>{item.title}</h3>
               <div>{item.description}</div>
               <a href={item.url}>News Source</a>
+              <img src={item.meme} />
             </div>
           ))}
         </div>
-        <div>
-          {memes.map((item) => (
-            <div>
-              <img src={item.url} />
-            </div>
-          ))}
-        </div>
+        <div></div>
       </div>
     );
   });

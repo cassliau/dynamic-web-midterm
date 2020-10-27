@@ -2,10 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <header className="Header">
-      <div>
-        <h1>Home</h1>
-      </div>
+    <header>
       <nav>
         <a href="/?category=apple"> Apple</a>
         <a href="/?category=trump"> Trump</a>
