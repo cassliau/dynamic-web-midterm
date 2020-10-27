@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import Header from "../components/Header";
 import { useHistory } from "react-router-dom";
+import shuffle from "shuffle-array";
 
 const NEWSAPI = process.env.REACT_APP_NEWS_API_KEY;
 
@@ -17,7 +18,7 @@ function Home() {
       .then(function (response) {
         const articleDataResponse = response.data.articles;
         setNewsData(articleDataResponse);
-        console.log(`article data response`, articleDataResponse);
+        // console.log(`article data response`, articleDataResponse);
       })
       .catch(function (error) {
         console.warn(error);
@@ -39,7 +40,7 @@ function Home() {
       .then(function (response) {
         const memeDataResponse = response.data.data.memes;
         setMeme(memeDataResponse);
-        console.log("meme data response", memeDataResponse);
+        // console.log("meme data response", memeDataResponse);
       })
       .catch(function (error) {
         console.warn(error);
@@ -49,6 +50,7 @@ function Home() {
   const articles = useMemo(() => {
     let articles = [];
     let memes = [];
+
     newsData.forEach((article) => {
       articles.push({
         title: article.title,
@@ -57,6 +59,9 @@ function Home() {
         meme: memeData.pop().url,
       });
     });
+
+    shuffle(memeData);
+    // console.log(`shuffle`, memeData);
 
     return (
       <div>
