@@ -3,8 +3,8 @@ import axios from "axios";
 import Header from "../components/Header";
 import { useHistory } from "react-router-dom";
 
-// const NEWSAPI = process.env.REACT_APP_NEWS_API_KEY;
-// console.log(`api key`, NEWSAPI);
+const NEWSAPI = process.env.REACT_APP_NEWS_API_KEY;
+console.log(`api key`, NEWSAPI);
 
 function Home() {
   const [category, setCategory] = useState();
@@ -14,9 +14,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get(
-        `https://newsapi.org/v2/everything?q=${category}&apiKey=548f1408238c4a3d8013767237f2c84d`
-      )
+      .get(`https://newsapi.org/v2/everything?q=${category}&apiKey=${NEWSAPI}`)
       .then(function (response) {
         const articleDataResponse = response.data.articles;
         setNewsData(articleDataResponse);
@@ -49,14 +47,14 @@ function Home() {
       });
   }, []);
 
-  const { articles } = useMemo(() => {
+  const articles = useMemo(() => {
     let articles = [];
     let memes = [];
     newsData.forEach((article) => {
       articles.push({
         title: article.title,
         description: article.description,
-        source: article.source,
+        url: article.url,
       });
     });
     memeData.forEach((meme) => {
@@ -71,20 +69,23 @@ function Home() {
         <div>
           {articles.map((item) => (
             <div>
-              <h3>item.title</h3>
-              <div>item.description</div>
-              <a href={item.source}>CLICK HERE</a>
+              <h3>{item.title}</h3>
+              <div>{item.description}</div>
+              <a href={item.url}>News Source</a>
             </div>
           ))}
         </div>
         <div>
           {memes.map((item) => (
-            <div>item.url</div>
+            <div>
+              <img src={item.url} />
+            </div>
           ))}
         </div>
       </div>
     );
   });
+  return articles;
 }
 
 export default Home;
