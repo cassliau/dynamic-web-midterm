@@ -27,18 +27,6 @@ function Home() {
       });
   }, [category]);
 
-  const { articles } = useMemo(() => {
-    let articles = [];
-    newsData.forEach((article) => {
-      articles.push({
-        title: article.title,
-        description: article.description,
-        source: article.source,
-      });
-    });
-    return articles;
-  });
-
   useEffect(() => {
     const searchParams = history.location.search;
     const urlParams = new URLSearchParams(searchParams);
@@ -61,17 +49,42 @@ function Home() {
       });
   }, []);
 
-  const { memes } = useMemo(() => {
+  const { articles } = useMemo(() => {
+    let articles = [];
     let memes = [];
+    newsData.forEach((article) => {
+      articles.push({
+        title: article.title,
+        description: article.description,
+        source: article.source,
+      });
+    });
     memeData.forEach((meme) => {
       memes.push({
         url: meme.url,
       });
     });
-    return memes;
-  });
 
-  return <h1>HOME</h1>;
+    return (
+      <div>
+        <h3>Home</h3>
+        <div>
+          {articles.map((item) => (
+            <div>
+              <h3>item.title</h3>
+              <div>item.description</div>
+              <a href={item.source}>CLICK HERE</a>
+            </div>
+          ))}
+        </div>
+        <div>
+          {memes.map((item) => (
+            <div>item.url</div>
+          ))}
+        </div>
+      </div>
+    );
+  });
 }
 
 export default Home;
