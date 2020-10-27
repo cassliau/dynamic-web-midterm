@@ -9,8 +9,9 @@ import Home from "./containers/Home";
 function App() {
   return (
     <Router>
+      <Header />
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
       </Switch>

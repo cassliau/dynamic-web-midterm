@@ -1,13 +1,22 @@
 .Header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  max-width: 1080px;
-}
-
-.Header nav a {
   color: black;
   font-size: 24px;
+  color: #6096ba;
+  font-size: 23px;
+  text-transform: small-caps;
   margin: 0 10px;
+  text-decoration: none;
+}
+
+/*-- Home Styling --*/
+
+.Home h3 {
+  font-size: 24px;
+  color: olive;
+  font-weight: 200;
+}
+
+.categoryTitle {
+  color: #6096ba;
+  text-transform: uppercase;
 }

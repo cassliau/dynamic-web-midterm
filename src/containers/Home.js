@@ -4,10 +4,9 @@ import Header from "../components/Header";
 import { useHistory } from "react-router-dom";
 
 const NEWSAPI = process.env.REACT_APP_NEWS_API_KEY;
-console.log(`api key`, NEWSAPI);
 
 function Home() {
-  const [category, setCategory] = useState();
+  const [category, setCategory] = useState("top-headlines");
   const [newsData, setNewsData] = useState([]);
   const [memeData, setMeme] = useState([]);
   const history = useHistory();
@@ -61,15 +60,20 @@ function Home() {
 
     return (
       <div>
-        <Header />
-        <h3>Home</h3>
+        <div className="categoryTitle">
+          <h1>{category}</h1>
+        </div>
         <div>
           {articles.map((item) => (
             <div>
               <h3>{item.title}</h3>
-              <div>{item.description}</div>
-              <a href={item.url}>News Source</a>
-              <img src={item.meme} />
+              <div>
+                {item.description} <a href={item.url}> read more</a>
+              </div>
+              <br />
+              <div>
+                <img src={item.meme} />
+              </div>
             </div>
           ))}
         </div>
