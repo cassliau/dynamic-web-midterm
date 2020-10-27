@@ -27,17 +27,16 @@ function Home() {
       });
   }, [category]);
 
-  const { title } = useMemo(() => {
-    let title = [];
-    let description = [];
-    let source = [];
+  const { articles } = useMemo(() => {
+    let articles = [];
     newsData.forEach((article) => {
-      title.push(article.title);
-      description.push(article.description);
-      source.push(article.source);
+      articles.push({
+        title: article.title,
+        description: article.description,
+        source: article.source,
+      });
     });
-    console.log(`article title`, { title }, { description }, { source });
-    return { title }, { description }, { source };
+    return articles;
   });
 
   useEffect(() => {
@@ -62,23 +61,17 @@ function Home() {
       });
   }, []);
 
-  return <h1>Home</h1>;
+  const { memes } = useMemo(() => {
+    let memes = [];
+    memeData.forEach((meme) => {
+      memes.push({
+        url: meme.url,
+      });
+    });
+    return memes;
+  });
+
+  return <h1>HOME</h1>;
 }
 
 export default Home;
-
-// <div>
-//   <h1>Home</h1>
-//   {newsData.map((articles, i) => (
-//     <div key={i}>
-//       <h3>Article Title: </h3>
-//       <p>{articles.title}</p>
-//     </div>
-//   ))}
-//   {memeData.map((memes, i) => (
-//     <div key={i}>
-//       <h3>Meme: </h3>
-//       <img src={memes.url} alt=""></img>
-//     </div>
-//   ))}
-// </div>
