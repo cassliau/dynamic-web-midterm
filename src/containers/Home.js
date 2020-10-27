@@ -27,6 +27,19 @@ function Home() {
       });
   }, [category]);
 
+  const { title } = useMemo(() => {
+    let title = [];
+    let description = [];
+    let source = [];
+    newsData.forEach((article) => {
+      title.push(article.title);
+      description.push(article.description);
+      source.push(article.source);
+    });
+    console.log(`article title`, { title }, { description }, { source });
+    return { title }, { description }, { source };
+  });
+
   useEffect(() => {
     const searchParams = history.location.search;
     const urlParams = new URLSearchParams(searchParams);
@@ -35,13 +48,6 @@ function Home() {
       setCategory(category);
     }
   }, [history]);
-
-  const { title } = useMemo(() => {
-    let title = [];
-    newsData.forEach((article) => {
-      title.push(article.title);
-    });
-  });
 
   useEffect(() => {
     axios
