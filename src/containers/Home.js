@@ -66,16 +66,17 @@ function Home() {
     return (
       <div>
         <div className="categoryTitle">
-          <h1>
-            <span>you are viewing: </span>
+          <br />
+          <h1 className="horizontalLine2">
+            <span>you are viewing the category: </span>
             {category}
           </h1>
         </div>
-        <div>
+        <div className="articles">
           {articles.map((item) => (
             <div>
-              <h3>{item.title}</h3>
-              <div>
+              <h3 className="articleTitle">{item.title}</h3>
+              <div className="description">
                 {item.description} <a href={item.url}> read more</a>
               </div>
               <br />

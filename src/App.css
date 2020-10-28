@@ -4,6 +4,8 @@
 /*-- Header Styling --*/
 
 .Header {
+  display: flex;
+  flex-direction: row;
   min-width: 100%;
   max-width: 100%;
 }
@@ -31,15 +33,17 @@
 }
 
 .horizontalLine {
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+  border-top: 1px solid darkgray;
+  border-bottom: 1px solid darkgray;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
 .navBar {
   display: flex;
+  flex-direction: row;
   height: 55px;
+  max-width: 100%;
 }
 
 .navBar p {
@@ -62,6 +66,7 @@
 .topCategory {
   color: #464649;
   font-size: 12px;
+  font-weight: 300;
   text-transform: uppercase;
   margin-left: 50px;
   padding-left: 30px;
@@ -97,11 +102,30 @@
 
 /*-- Home Styling --*/
 
+.articles {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  border-bottom: 1px solid black;
+}
+
+.articleTitle {
+  color: #232e2f;
+  font-weight: 600;
+  margin-left: 50px;
+  padding-left: 30px;
+}
+
 .Home {
   text-align: center;
   margin: 0 auto;
   max-width: 100%;
   padding: 0 25px;
+}
+
+.horizontalLine2 {
+  border-bottom: 1px solid darkgray;
+  padding-bottom: 20px;
+  width: 80%;
 }
 
 .categoryTitle {
@@ -113,10 +137,28 @@
 }
 
 .categoryTitle span {
-  color: #464649;
-  font-size: 16px;
+  color: #232323;
+  font-size: 12px;
+  font-weight: 300;
 }
+
+.description {
+  font-weight: 300;
+  line-height: 25px;
+  margin-left: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.description a {
+  color: #6096ba;
+  font-weight: 500;
+}
+
 .meme img {
-  min-width: 500px;
-  max-width: 500px;
+  min-width: 70%;
+  max-width: 70%;
+  margin-left: 50px;
+  padding-left: 30px;
+  padding-bottom: 30px;
 }
