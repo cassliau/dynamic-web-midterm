@@ -1,23 +1,28 @@
+.App {
+  width: 100%;
+}
 /*-- Header Styling --*/
 
 .Header {
-  min-width: 1080px;
-  max-width: 1080px;
-  padding: 50px;
+  min-width: 100%;
+  max-width: 100%;
 }
 
 .Header nav {
+  margin-left: 50px;
   display: flex;
   flex-direction: row;
 }
 
 .Header nav a {
   color: #668586;
-  font-size: 30px;
+  font-size: 25px;
   font-variant: small-caps;
   text-decoration: none;
   padding-right: 30px;
   padding-left: 30px;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .Header nav a:hover {
@@ -25,21 +30,93 @@
   text-decoration: underline;
 }
 
+.horizontalLine {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.navBar {
+  display: flex;
+  height: 55px;
+}
+
+.navBar p {
+  padding-top: 10px;
+}
+
+.navTitle a {
+  color: #232e2f;
+  margin-left: 50px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.navTitle a:hover {
+  color: #668586;
+}
+
+.topCategory {
+  color: #464649;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-left: 50px;
+  padding-left: 30px;
+}
+
+.searchBar {
+  padding-bottom: 20px;
+}
+
+.searchBar p {
+  color: #464649;
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+
+.Header form {
+  align-items: center;
+  display: flex;
+  flex-flow: row;
+  height: 55px;
+  padding-left: 30px;
+}
+
+.Header input {
+  height: 20px;
+}
+
 .Header button {
+  color: #464649;
+  height: 20px;
+  margin: 10px;
 }
 
 /*-- Home Styling --*/
 
 .Home {
-}
-
-.Home h3 {
-  font-size: 24px;
-  color: olive;
-  font-weight: 200;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 25px;
 }
 
 .categoryTitle {
   color: #6096ba;
+  font-size: 10px;
   text-transform: uppercase;
+  margin-left: 50px;
+  padding-left: 30px;
+}
+
+.categoryTitle span {
+  color: #464649;
+  font-size: 16px;
+}
+.meme img {
+  min-width: 500px;
+  max-width: 500px;
 }

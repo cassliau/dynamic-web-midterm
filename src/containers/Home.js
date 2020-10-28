@@ -66,7 +66,10 @@ function Home() {
     return (
       <div>
         <div className="categoryTitle">
-          <h1>{category}</h1>
+          <h1>
+            <span>you are viewing: </span>
+            {category}
+          </h1>
         </div>
         <div>
           {articles.map((item) => (
@@ -76,7 +79,7 @@ function Home() {
                 {item.description} <a href={item.url}> read more</a>
               </div>
               <br />
-              <div>
+              <div className="meme img">
                 <img src={item.meme} />
               </div>
             </div>
